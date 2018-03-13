@@ -327,6 +327,10 @@ class LIBPROTOBUF_EXPORT MessageLite {
   // reduce heap fragmentation by instead re-using the same string
   // object with calls to SerializeToString().
   string SerializeAsString() const;
+  // Write the message to Base64 encoding. All required
+  // fields must be set.
+  string SerializeToBase64() const;
+
   // Like SerializeAsString(), but allows missing required fields.
   string SerializePartialAsString() const;
 
