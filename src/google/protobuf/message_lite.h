@@ -263,6 +263,10 @@ class LIBPROTOBUF_EXPORT MessageLite {
   // If you'd like to convert a human-readable string into a protocol buffer
   // object, see google::protobuf::TextFormat::ParseFromString().
   bool ParseFromString(const string& data);
+  // Parses a protocol buffer contained in a string which is encoded in base64. Returns true on success.
+  // This function takes a string in the base64 format
+  bool ParseFromBase64(const string& data);
+
   // Like ParseFromString(), but accepts messages that are missing
   // required fields.
   bool ParsePartialFromString(const string& data);
@@ -333,7 +337,6 @@ class LIBPROTOBUF_EXPORT MessageLite {
 
   // Like SerializeAsString(), but allows missing required fields.
   string SerializePartialAsString() const;
-
   // Like SerializeToString(), but appends to the data to the string's existing
   // contents.  All required fields must be set.
   bool AppendToString(string* output) const;
